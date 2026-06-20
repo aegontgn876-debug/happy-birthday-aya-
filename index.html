@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد سعيد يا آية! ❤️</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #333; display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden; text-align: center;
+        }
+        .container { width: 90%; max-width: 500px; }
+        .page { display: none; animation: fadeIn 1s ease-in-out forwards; }
+        .page.active { display: block; }
+        h1, h2 { color: #d63384; font-size: 2.2rem; }
+        button {
+            background-color: #d63384; color: white; border: none;
+            padding: 12px 25px; font-size: 1.1rem; border-radius: 25px;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(214, 51, 132, 0.4); transition: 0.3s;
+        }
+        button:hover { background-color: #b01a60; transform: scale(1.05); }
+        .envelope {
+            background: #ffffff; padding: 30px; border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); cursor: pointer;
+            transition: 0.5s; border: 2px dashed #d63384;
+        }
+        .letter { display: none; animation: slideUp 0.8s ease-out forwards; }
+        .letter p { font-size: 1.2rem; line-height: 1.8; color: #555; }
+        .hint { font-size: 0.9rem; color: #888; margin-top: 15px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الصفحة الأولى -->
+        <section id="page1" class="page active">
+            <div style="font-size: 4rem;">🎈🎂🎈</div>
+            <h1>كل عام وأنتِ بخير يا آية! ❤️</h1>
+            <p>اضغطي على الزر لرؤية مفاجأتك...</p>
+            <button onclick="nextPage(2)">افتحي المفاجأة ✨</button>
+        </section>
+
+        <!-- الصفحة الثانية -->
+        <section id="page2" class="page">
+            <div style="font-size: 5rem; animation: float 3s ease-in-out infinite;">🎂</div>
+            <h2>اليوم نطفئ شمعة عامكِ الجديد...</h2>
+            <p>رغم تعبي وضغوط الأيام، لم أكن لأفوت رسم البسمة على وجهكِ الجميل.</p>
+            <button onclick="nextPage(3)">اقرئي رسالتي لكِ 💌</button>
+        </section>
+
+        <!-- الصفحة الثالثة -->
+        <section id="page3" class="page">
+            <div class="envelope" onclick="openLetter()">
+                <div class="letter" id="letter">
+                    <h3>إلى آية، شريكة عمري ❤️</h3>
+                    <p>في يوم ميلادكِ، أريد أن أخبركِ أنكِ أجمل ما حدث لي. شكرًا لأنكِ في حياتي، وشكرًا لكل لحظة حب تصنعينها بوجودكِ. كل عام وأنتِ حبيبتي، رفيقتي، وملكتي الدائمة.</p>
+                    <p style="color: #d63384; font-weight: bold;">المخلص لكِ دائمًا 🥰</p>
+                </div>
+            </div>
+            <p class="hint">اضغطي على المظروف الورقي لفتح الرسالة 💌</p>
+        </section>
+    </div>
+
+    <script>
+        function nextPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+        }
+        function openLetter() {
+            document.getElementById('letter').style.display = 'block';
+            document.querySelector('.hint').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
